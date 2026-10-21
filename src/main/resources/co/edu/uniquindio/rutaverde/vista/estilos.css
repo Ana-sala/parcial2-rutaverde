@@ -1,0 +1,147 @@
+.root {
+    -fx-font-family: "Segoe UI", "Arial";
+    -fx-font-size: 13px;
+    -fx-background-color: #F3F7F2;
+}
+.encabezado {
+    -fx-background-color: linear-gradient(to right, #1B5E20, #43A047);
+    -fx-padding: 16 28;
+}
+.titulo {
+    -fx-text-fill: white;
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+}
+.subtitulo {
+    -fx-text-fill: #E8F5E9;
+    -fx-font-size: 13px;
+}
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: white;
+}
+.tab-pane .tab {
+    -fx-background-color: transparent;
+    -fx-padding: 8 18;
+}
+.tab-pane .tab:selected {
+    -fx-border-color: transparent transparent #F9A825 transparent;
+    -fx-border-width: 0 0 3 0;
+}
+.tab-pane .tab .tab-label {
+    -fx-text-fill: #5B6B5C;
+    -fx-font-weight: bold;
+}
+.tab-pane .tab:selected .tab-label {
+    -fx-text-fill: #1B5E20;
+}
+.tarjeta {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-padding: 18;
+    -fx-spacing: 8;
+    -fx-effect: dropshadow(gaussian, rgba(20, 60, 20, 0.10), 14, 0, 0, 3);
+}
+.tarjeta-titulo {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1B5E20;
+}
+.etiqueta {
+    -fx-text-fill: #5B6B5C;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+.nota {
+    -fx-text-fill: #5B6B5C;
+    -fx-font-style: italic;
+}
+.text-field, .combo-box, .date-picker, .text-area {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #CFDCCF;
+    -fx-background-color: white;
+}
+.text-field:focused, .combo-box:focused, .date-picker:focused {
+    -fx-border-color: #43A047;
+}
+.boton-primario {
+    -fx-background-color: #2E7D32;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 9 18;
+    -fx-cursor: hand;
+}
+.boton-primario:hover {
+    -fx-background-color: #43A047;
+}
+.boton-secundario {
+    -fx-background-color: #F9A825;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 9 18;
+    -fx-cursor: hand;
+}
+.boton-secundario:hover {
+    -fx-background-color: #FBC02D;
+}
+.boton-kiosco {
+    -fx-background-color: #2E7D32;
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 12;
+    -fx-padding: 14 24;
+    -fx-cursor: hand;
+}
+.table-view, .tree-table-view, .list-view {
+    -fx-background-radius: 8;
+    -fx-border-color: #E1EAE1;
+    -fx-border-radius: 8;
+}
+.table-view .column-header, .tree-table-view .column-header {
+    -fx-background-color: #E8F5E9;
+}
+.table-view .column-header .label, .tree-table-view .column-header .label {
+    -fx-text-fill: #1B5E20;
+    -fx-font-weight: bold;
+}
+.table-row-cell:selected, .tree-table-row-cell:selected {
+    -fx-background-color: #43A047;
+}
+.mensaje-exito {
+    -fx-text-fill: #2E7D32;
+    -fx-font-weight: bold;
+}
+.mensaje-error {
+    -fx-text-fill: #C62828;
+    -fx-font-weight: bold;
+}
+.valor {
+    -fx-font-size: 13px;
+    -fx-text-fill: #1B5E20;
+}
+.cifra {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1B5E20;
+}
+.voucher {
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 12px;
+}
+.tiquete {
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 15px;
+    -fx-background-color: #FFF8E1;
+    -fx-border-color: #F9A825;
+    -fx-border-style: dashed;
+    -fx-border-width: 2;
+    -fx-padding: 14;
+    -fx-text-fill: #3E2723;
+}
+.scroll-transparente, .scroll-transparente > .viewport {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}

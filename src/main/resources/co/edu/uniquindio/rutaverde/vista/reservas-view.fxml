@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="co.edu.uniquindio.rutaverde.controlador.ReservasControlador" spacing="20">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <ScrollPane fitToWidth="true" prefWidth="350" minWidth="330" styleClass="scroll-transparente">
+        <VBox styleClass="tarjeta">
+            <Label text="Nueva reserva" styleClass="tarjeta-titulo"/>
+            <Label text="Cliente *" styleClass="etiqueta"/>
+            <ComboBox fx:id="cmbCliente" promptText="Seleccione" maxWidth="Infinity"/>
+            <Label text="Producto (actividad o paquete) *" styleClass="etiqueta"/>
+            <ComboBox fx:id="cmbProducto" promptText="Seleccione" maxWidth="Infinity"/>
+            <HBox spacing="8">
+                <VBox spacing="4" HBox.hgrow="ALWAYS">
+                    <Label text="Fecha del viaje *" styleClass="etiqueta"/>
+                    <DatePicker fx:id="dpFecha" maxWidth="Infinity"/>
+                </VBox>
+                <VBox spacing="4" prefWidth="90">
+                    <Label text="Viajeros *" styleClass="etiqueta"/>
+                    <TextField fx:id="txtViajeros" promptText="1 a 15"/>
+                </VBox>
+            </HBox>
+            <Label text="Guia (opcional)" styleClass="etiqueta"/>
+            <HBox spacing="6">
+                <ComboBox fx:id="cmbGuia" promptText="Sin guia" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
+                <Button text="Quitar" onAction="#quitarGuia"/>
+            </HBox>
+            <CheckBox fx:id="chkTransporte" text="Transporte desde el hotel ($35.000 c/u)"/>
+            <CheckBox fx:id="chkSeguro" text="Seguro de viaje ($15.000 c/u)"/>
+            <Label text="Observaciones" styleClass="etiqueta"/>
+            <TextArea fx:id="txtObservaciones" prefRowCount="2" wrapText="true"
+                      promptText="Alergias, movilidad reducida, alimentacion"/>
+            <Button text="Calcular valor" styleClass="boton-secundario" maxWidth="Infinity"
+                    onAction="#calcularValor"/>
+            <Label fx:id="lblValor" wrapText="true" styleClass="valor"/>
+            <Label text="Numero de tarjeta" styleClass="etiqueta"/>
+            <TextField fx:id="txtTarjeta" promptText="4539 1488 0343 6467"/>
+            <Button text="Confirmar reserva" styleClass="boton-primario" maxWidth="Infinity"
+                    onAction="#confirmarReserva"/>
+            <Label fx:id="lblMensaje" wrapText="true"/>
+        </VBox>
+    </ScrollPane>
+
+    <VBox spacing="16" HBox.hgrow="ALWAYS">
+        <VBox styleClass="tarjeta" VBox.vgrow="ALWAYS">
+            <Label text="Voucher del asesor (detallado)" styleClass="tarjeta-titulo"/>
+            <TextArea fx:id="txtVoucher" editable="false" styleClass="voucher" VBox.vgrow="ALWAYS"/>
+        </VBox>
+        <VBox styleClass="tarjeta" prefHeight="230">
+            <Label text="Reservas confirmadas" styleClass="tarjeta-titulo"/>
+            <TableView fx:id="tblReservas" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colNumero" text="N." prefWidth="45"/>
+                    <TableColumn fx:id="colCliente" text="Cliente" prefWidth="130"/>
+                    <TableColumn fx:id="colProducto" text="Producto" prefWidth="150"/>
+                    <TableColumn fx:id="colFecha" text="Fecha viaje" prefWidth="95"/>
+                    <TableColumn fx:id="colViajeros" text="Viajeros" prefWidth="70"/>
+                    <TableColumn fx:id="colTotal" text="Total" prefWidth="100"/>
+                </columns>
+                <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+            </TableView>
+        </VBox>
+    </VBox>
+</HBox>

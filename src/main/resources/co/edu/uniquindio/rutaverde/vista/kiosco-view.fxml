@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="co.edu.uniquindio.rutaverde.controlador.KioscoControlador">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+    <VBox styleClass="tarjeta" maxWidth="620" maxHeight="-Infinity" spacing="10">
+        <Label text="Kiosco · Terminal de Transporte de Armenia" styleClass="tarjeta-titulo"/>
+        <Label styleClass="nota" wrapText="true"
+               text="Este canal usa la misma FachadaReservas que el asesor; solo cambia el generador de voucher (tiquete corto)."/>
+        <HBox spacing="10">
+            <VBox spacing="4" HBox.hgrow="ALWAYS">
+                <Label text="Cliente" styleClass="etiqueta"/>
+                <ComboBox fx:id="cmbCliente" promptText="Seleccione" maxWidth="Infinity"/>
+            </VBox>
+            <VBox spacing="4" HBox.hgrow="ALWAYS">
+                <Label text="Producto" styleClass="etiqueta"/>
+                <ComboBox fx:id="cmbProducto" promptText="Seleccione" maxWidth="Infinity"/>
+            </VBox>
+        </HBox>
+        <HBox spacing="10">
+            <VBox spacing="4" HBox.hgrow="ALWAYS">
+                <Label text="Fecha del viaje" styleClass="etiqueta"/>
+                <DatePicker fx:id="dpFecha" maxWidth="Infinity"/>
+            </VBox>
+            <VBox spacing="4" prefWidth="110">
+                <Label text="Viajeros" styleClass="etiqueta"/>
+                <TextField fx:id="txtViajeros" promptText="1 a 15"/>
+            </VBox>
+        </HBox>
+        <Label text="Numero de tarjeta" styleClass="etiqueta"/>
+        <TextField fx:id="txtTarjeta" promptText="4539 1488 0343 6467"/>
+        <Button text="Pagar y obtener tiquete" styleClass="boton-kiosco" maxWidth="Infinity"
+                onAction="#pagar"/>
+        <Label fx:id="lblMensaje" wrapText="true"/>
+        <Label fx:id="lblTiquete" wrapText="true" maxWidth="Infinity" visible="false" managed="false"
+               styleClass="tiquete"/>
+    </VBox>
+</StackPane>

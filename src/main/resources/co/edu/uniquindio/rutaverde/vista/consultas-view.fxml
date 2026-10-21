@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="co.edu.uniquindio.rutaverde.controlador.ConsultasControlador" spacing="20">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <VBox spacing="16" prefWidth="420" minWidth="380">
+        <VBox styleClass="tarjeta">
+            <Label text="Ingresos por periodo" styleClass="tarjeta-titulo"/>
+            <Label styleClass="nota" wrapText="true"
+                   text="Reservas confirmadas cuyo viaje esta entre las dos fechas, ambas incluidas."/>
+            <HBox spacing="8">
+                <VBox spacing="4" HBox.hgrow="ALWAYS">
+                    <Label text="Desde" styleClass="etiqueta"/>
+                    <DatePicker fx:id="dpDesde" maxWidth="Infinity"/>
+                </VBox>
+                <VBox spacing="4" HBox.hgrow="ALWAYS">
+                    <Label text="Hasta" styleClass="etiqueta"/>
+                    <DatePicker fx:id="dpHasta" maxWidth="Infinity"/>
+                </VBox>
+            </HBox>
+            <Button text="Calcular ingresos" styleClass="boton-secundario" maxWidth="Infinity"
+                    onAction="#calcularIngresos"/>
+            <Label fx:id="lblIngresos" styleClass="cifra"/>
+            <Label fx:id="lblMensaje" wrapText="true"/>
+        </VBox>
+        <VBox styleClass="tarjeta" VBox.vgrow="ALWAYS">
+            <Label text="Producto con mas viajeros" styleClass="tarjeta-titulo"/>
+            <Label fx:id="lblTop" wrapText="true" styleClass="valor"/>
+            <TableView fx:id="tblViajeros" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colProducto" text="Producto" prefWidth="220"/>
+                    <TableColumn fx:id="colViajeros" text="Viajeros" prefWidth="90"/>
+                </columns>
+                <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+            </TableView>
+        </VBox>
+    </VBox>
+
+    <VBox styleClass="tarjeta" HBox.hgrow="ALWAYS">
+        <Label text="Bandeja de correos enviados" styleClass="tarjeta-titulo"/>
+        <Label styleClass="nota" wrapText="true"
+               text="Paso 7 de la confirmacion, o el correo con el motivo cuando un paso falla."/>
+        <TextArea fx:id="txtCorreos" editable="false" styleClass="voucher" VBox.vgrow="ALWAYS"/>
+    </VBox>
+</HBox>

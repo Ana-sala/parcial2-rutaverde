@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="co.edu.uniquindio.rutaverde.controlador.ProductosControlador" spacing="20">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <ScrollPane fitToWidth="true" prefWidth="350" minWidth="330" styleClass="scroll-transparente">
+        <VBox spacing="16">
+            <VBox styleClass="tarjeta">
+                <Label text="Nueva actividad" styleClass="tarjeta-titulo"/>
+                <HBox spacing="8">
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Codigo" styleClass="etiqueta"/>
+                        <TextField fx:id="txtCodigo" promptText="A07"/>
+                    </VBox>
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Municipio" styleClass="etiqueta"/>
+                        <TextField fx:id="txtMunicipio" promptText="Circasia"/>
+                    </VBox>
+                </HBox>
+                <Label text="Nombre" styleClass="etiqueta"/>
+                <TextField fx:id="txtNombre" promptText="Cabalgata cafetera"/>
+                <HBox spacing="8">
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Horas" styleClass="etiqueta"/>
+                        <TextField fx:id="txtHoras" promptText="3"/>
+                    </VBox>
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Precio x persona" styleClass="etiqueta"/>
+                        <TextField fx:id="txtPrecio" promptText="70000"/>
+                    </VBox>
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Cupo dia" styleClass="etiqueta"/>
+                        <TextField fx:id="txtCupo" promptText="12"/>
+                    </VBox>
+                </HBox>
+                <HBox spacing="8">
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Dificultad" styleClass="etiqueta"/>
+                        <ComboBox fx:id="cmbDificultad" maxWidth="Infinity"/>
+                    </VBox>
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Estado" styleClass="etiqueta"/>
+                        <ComboBox fx:id="cmbEstado" maxWidth="Infinity"/>
+                    </VBox>
+                </HBox>
+                <Button text="Registrar actividad" styleClass="boton-primario" maxWidth="Infinity"
+                        onAction="#registrarActividad"/>
+            </VBox>
+
+            <VBox styleClass="tarjeta">
+                <Label text="Nuevo paquete" styleClass="tarjeta-titulo"/>
+                <HBox spacing="8">
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Codigo" styleClass="etiqueta"/>
+                        <TextField fx:id="txtCodigoPaquete" promptText="P05"/>
+                    </VBox>
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Descuento %" styleClass="etiqueta"/>
+                        <TextField fx:id="txtDescuento" promptText="0 a 20"/>
+                    </VBox>
+                </HBox>
+                <Label text="Nombre" styleClass="etiqueta"/>
+                <TextField fx:id="txtNombrePaquete" promptText="Ruta del Cafe"/>
+                <Button text="Registrar paquete" styleClass="boton-primario" maxWidth="Infinity"
+                        onAction="#registrarPaquete"/>
+            </VBox>
+
+            <VBox styleClass="tarjeta">
+                <Label text="Armar paquete" styleClass="tarjeta-titulo"/>
+                <Label text="Paquete" styleClass="etiqueta"/>
+                <ComboBox fx:id="cmbPaquete" promptText="Seleccione" maxWidth="Infinity"/>
+                <Label text="Agregar (actividad o paquete)" styleClass="etiqueta"/>
+                <ComboBox fx:id="cmbProducto" promptText="Seleccione" maxWidth="Infinity"/>
+                <Button text="Agregar al paquete" styleClass="boton-secundario" maxWidth="Infinity"
+                        onAction="#agregarAlPaquete"/>
+            </VBox>
+            <Label fx:id="lblMensaje" wrapText="true"/>
+        </VBox>
+    </ScrollPane>
+
+    <VBox styleClass="tarjeta" HBox.hgrow="ALWAYS">
+        <Label text="Catalogo de productos" styleClass="tarjeta-titulo"/>
+        <Label styleClass="nota" wrapText="true"
+               text="Composite: cada fila se consulta con los mismos metodos, sea una actividad suelta o un paquete con paquetes internos. Despliegue un paquete para ver su contenido."/>
+        <TreeTableView fx:id="tblProductos" VBox.vgrow="ALWAYS" showRoot="false">
+            <columns>
+                <TreeTableColumn fx:id="colNombre" text="Producto" prefWidth="230"/>
+                <TreeTableColumn fx:id="colTipo" text="Tipo" prefWidth="80"/>
+                <TreeTableColumn fx:id="colPrecio" text="Precio x persona" prefWidth="120"/>
+                <TreeTableColumn fx:id="colDuracion" text="Duracion" prefWidth="80"/>
+                <TreeTableColumn fx:id="colActividades" text="Actividades" prefWidth="85"/>
+                <TreeTableColumn fx:id="colDetalle" text="Estado / descuento" prefWidth="130"/>
+            </columns>
+            <columnResizePolicy><TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+        </TreeTableView>
+        <HBox spacing="10">
+            <Button text="Suspender / reactivar actividad seleccionada" styleClass="boton-secundario"
+                    onAction="#cambiarEstado"/>
+        </HBox>
+    </VBox>
+</HBox>

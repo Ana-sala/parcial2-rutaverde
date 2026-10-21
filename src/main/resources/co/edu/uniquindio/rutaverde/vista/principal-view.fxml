@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.rutaverde.controlador.PrincipalControlador">
+    <top>
+        <VBox styleClass="encabezado" spacing="2">
+            <Label fx:id="lblTitulo" styleClass="titulo"/>
+            <Label fx:id="lblAgencia" styleClass="subtitulo"/>
+        </VBox>
+    </top>
+    <center>
+        <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE">
+            <Tab text="Productos turisticos">
+                <fx:include fx:id="productos" source="productos-view.fxml"/>
+            </Tab>
+            <Tab text="Clientes y guias">
+                <fx:include fx:id="clientes" source="clientes-view.fxml"/>
+            </Tab>
+            <Tab text="Reservas (asesor)">
+                <fx:include fx:id="reservas" source="reservas-view.fxml"/>
+            </Tab>
+            <Tab text="Kiosco terminal">
+                <fx:include fx:id="kiosco" source="kiosco-view.fxml"/>
+            </Tab>
+            <Tab text="Consultas">
+                <fx:include fx:id="consultas" source="consultas-view.fxml"/>
+            </Tab>
+        </TabPane>
+    </center>
+</BorderPane>

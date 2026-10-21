@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="co.edu.uniquindio.rutaverde.controlador.ClientesControlador" spacing="20">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <ScrollPane fitToWidth="true" prefWidth="340" minWidth="320" styleClass="scroll-transparente">
+        <VBox spacing="16">
+            <VBox styleClass="tarjeta">
+                <Label text="Nuevo cliente" styleClass="tarjeta-titulo"/>
+                <Label text="Documento o pasaporte" styleClass="etiqueta"/>
+                <TextField fx:id="txtDocumento" promptText="1094... o P-1234"/>
+                <Label text="Nombre completo" styleClass="etiqueta"/>
+                <TextField fx:id="txtNombre"/>
+                <HBox spacing="8">
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Telefono" styleClass="etiqueta"/>
+                        <TextField fx:id="txtTelefono"/>
+                    </VBox>
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Correo" styleClass="etiqueta"/>
+                        <TextField fx:id="txtCorreo"/>
+                    </VBox>
+                </HBox>
+                <HBox spacing="8">
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Pais de origen" styleClass="etiqueta"/>
+                        <TextField fx:id="txtPais"/>
+                    </VBox>
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Idioma preferido" styleClass="etiqueta"/>
+                        <TextField fx:id="txtIdioma" promptText="Espanol"/>
+                    </VBox>
+                </HBox>
+                <Button text="Registrar cliente" styleClass="boton-primario" maxWidth="Infinity"
+                        onAction="#registrarCliente"/>
+            </VBox>
+            <VBox styleClass="tarjeta">
+                <Label text="Nuevo guia" styleClass="tarjeta-titulo"/>
+                <HBox spacing="8">
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Identificacion" styleClass="etiqueta"/>
+                        <TextField fx:id="txtIdGuia"/>
+                    </VBox>
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Telefono" styleClass="etiqueta"/>
+                        <TextField fx:id="txtTelefonoGuia"/>
+                    </VBox>
+                </HBox>
+                <Label text="Nombre" styleClass="etiqueta"/>
+                <TextField fx:id="txtNombreGuia"/>
+                <Label text="Idiomas (separados por coma)" styleClass="etiqueta"/>
+                <TextField fx:id="txtIdiomasGuia" promptText="Espanol, Ingles"/>
+                <Label text="Tarifa por dia (8 horas)" styleClass="etiqueta"/>
+                <TextField fx:id="txtTarifaGuia" promptText="180000"/>
+                <Button text="Registrar guia" styleClass="boton-primario" maxWidth="Infinity"
+                        onAction="#registrarGuia"/>
+            </VBox>
+            <Label fx:id="lblMensaje" wrapText="true"/>
+        </VBox>
+    </ScrollPane>
+
+    <VBox spacing="16" HBox.hgrow="ALWAYS">
+        <VBox styleClass="tarjeta" VBox.vgrow="ALWAYS">
+            <Label text="Clientes" styleClass="tarjeta-titulo"/>
+            <TableView fx:id="tblClientes" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colDocumento" text="Documento" prefWidth="110"/>
+                    <TableColumn fx:id="colNombre" text="Nombre" prefWidth="150"/>
+                    <TableColumn fx:id="colTelefono" text="Telefono" prefWidth="120"/>
+                    <TableColumn fx:id="colCorreo" text="Correo" prefWidth="140"/>
+                    <TableColumn fx:id="colPais" text="Pais" prefWidth="110"/>
+                    <TableColumn fx:id="colIdioma" text="Idioma" prefWidth="80"/>
+                </columns>
+                <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+            </TableView>
+        </VBox>
+        <VBox styleClass="tarjeta" VBox.vgrow="ALWAYS">
+            <Label text="Guias" styleClass="tarjeta-titulo"/>
+            <TableView fx:id="tblGuias" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colIdGuia" text="Identificacion" prefWidth="100"/>
+                    <TableColumn fx:id="colNombreGuia" text="Nombre" prefWidth="150"/>
+                    <TableColumn fx:id="colIdiomasGuia" text="Idiomas" prefWidth="170"/>
+                    <TableColumn fx:id="colTelefonoGuia" text="Telefono" prefWidth="110"/>
+                    <TableColumn fx:id="colTarifaGuia" text="Tarifa por dia" prefWidth="110"/>
+                </columns>
+                <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+            </TableView>
+        </VBox>
+    </VBox>
+</HBox>
